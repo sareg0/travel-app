@@ -1,7 +1,7 @@
 import * as React from "react";
 import { TimelineItemHeader } from "./TimelineItemHeader/TimelineItemHeader";
 import { TimelineItemContent } from "./TimelineItemContent/TimelineItemContent";
-import { BaseMarker } from "./TimelineMarker/BaseMarker/BaseMarker";
+import { IconMarker } from "./TimelineMarker/IconMarker/IconMarker";
 
 export interface TimelineItemProps {
   headerText: string;
@@ -17,7 +17,7 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
 }) => {
   return (
     <div className="timeline-item is-primary">
-      <BaseMarker type="danger" />
+      <IconMarker />
       <div className="timeline-content">
         <TimelineItemHeader headerText={headerText} />
         <TimelineItemContent>{timelineItem}</TimelineItemContent>

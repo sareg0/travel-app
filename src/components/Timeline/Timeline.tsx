@@ -1,9 +1,12 @@
 import * as React from "react";
 import { TimelineHeader } from "./subcomponents/TimelineHeader/TimelineHeader";
 import { TimelineItem } from "./subcomponents/TimelineItem/TimelineItem";
-//TODO: types
+import { EventDataList } from "../../data";
+export interface TimelineProps {
+  events: EventDataList;
+}
 
-export const Timeline: React.FC = ({}) => {
+export const Timeline: React.FC<TimelineProps> = ({ events }) => {
   return (
     <div className="timeline is-rtl">
       <TimelineHeader size="m" text="Start!" />
