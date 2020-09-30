@@ -10,7 +10,7 @@ const App: React.FC = () => {
         <Timeline events={data} />
       </section>
       <section>
-        <MapContainer />
+        <MapContainer events={data} />
       </section>
 
     </div>

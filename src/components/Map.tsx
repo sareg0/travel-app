@@ -1,6 +1,11 @@
 import React from 'react'
-import { GoogleMap, LoadScript } from '@react-google-maps/api';
- 
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { EventDataList } from "../data";
+
+export interface MapContainerProps {
+  events: EventDataList;
+}
+
 const containerStyle = {
   width: '100%',
   height: '100vh'
@@ -11,7 +16,7 @@ const center = {
   lng: -9.142685
 };
 
-function MapContainer() {
+export const MapContainer: React.FC<MapContainerProps> = ({events}) => {
   // const [map, setMap] = React.useState(null)
  
   // const onLoad = React.useCallback(function callback(map) {
@@ -36,8 +41,7 @@ function MapContainer() {
         // onLoad={onLoad}
         // onUnmount={onUnmount}
       >
-        { /* Child components, such as markers, info windows, etc. */ }
-        <></>
+        {events.map((event, index) => <Marker key={index} position={event.location} />)}
       </GoogleMap>
     </LoadScript>
   )
