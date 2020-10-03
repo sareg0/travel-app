@@ -1,21 +1,22 @@
 import * as React from "react";
 import { TimelineHeader } from "./subcomponents/TimelineHeader/TimelineHeader";
 import { TimelineItem } from "./subcomponents/TimelineItem/TimelineItem";
-import { EventDataList } from "../../data";
+
+import type {ContentfulEventEntryCollection} from '../../App'
 export interface TimelineProps {
-  events: EventDataList;
+  data: ContentfulEventEntryCollection;
 }
 
-export const Timeline: React.FC<TimelineProps> = ({ events }) => {
+export const Timeline: React.FC<TimelineProps> = ({ data }) => {
   return (
     <div className="timeline is-rtl">
       <TimelineHeader size="m" text="Start!" />
-      {events.map((event) => (
+      {data.items.map((item,) => (
         <TimelineItem
-          key={event.id}
+          key={item.sys.id}
             markerType="danger"
-            headerText={event.headline}
-            timelineItem={event.body}
+            headerText={item.fields.title}
+            timelineItem={JSON.stringify(item.fields.body)}
           />
       )
       )}
