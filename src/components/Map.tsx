@@ -2,6 +2,7 @@ import React from 'react'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { EventDataList } from "../data";
 
+
 export interface MapContainerProps {
   events: EventDataList;
 }
@@ -31,7 +32,7 @@ export const MapContainer: React.FC<MapContainerProps> = ({events}) => {
  
   return (
     <LoadScript
-      googleMapsApiKey="AIzaSyB-0F4xMPEYQE7AFgYwOmCAELkyt0fjQEI"
+      googleMapsApiKey={process.env.GOOGLE_MAPS_API_KEY}
       preventGoogleFontsLoading
     >
       <GoogleMap
