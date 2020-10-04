@@ -4,7 +4,7 @@ import { TimelineItemContent } from "./TimelineItemContent/TimelineItemContent";
 
 export interface TimelineItemProps {
   headerText: string;
-  timelineItem: any;
+  timelineItem: React.ReactNode;
   markerType: 'warning' | 'danger' | 'primary';
 }
 

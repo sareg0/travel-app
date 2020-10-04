@@ -2,11 +2,12 @@ import React, {useState, useEffect} from "react";
 import { Timeline } from "./components/Timeline";
 import MapContainer from './components/Map';
 import * as contentful from 'contentful'
+import { Document } from '@contentful/rich-text-types';
 
 export interface EventData {
   location: contentful.EntryFields.Location;
   title: string;
-  body: string;
+  body: Document;
   timestamp: string;
 }
 export type ContentfulEventEntry = contentful.Entry<EventData>
