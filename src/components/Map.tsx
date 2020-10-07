@@ -3,7 +3,9 @@ import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import type { ContentfulEventEntryCollection } from '../App'
 
 export interface MapContainerProps {
+  onClick: (id: string) => void
   data: ContentfulEventEntryCollection;
+  selectedEventId?: string
 }
 
 const containerStyle = {
@@ -16,18 +18,16 @@ const center = {
   lng: -9.142685
 };
 
-export const MapContainer: React.FC<MapContainerProps> = ({ data }) => {
-  // const [map, setMap] = React.useState(null)
+const DEFAULT_ICON = {
+    path: 0,
+    fillColor: 'red',
+    scale: 4.5,
+    strokeColor: 'white',
+    strokeWeight: 1,
+    fillOpacity: 1,
+}
 
-  // const onLoad = React.useCallback(function callback(map) {
-  //   const bounds = new window.google.maps.LatLngBounds();
-  //   map.fitBounds(bounds);
-  //   setMap(map)
-  // }, [])
-
-  // const onUnmount = React.useCallback(function callback(map) {
-  //   setMap(null)
-  // }, [])
+export const MapContainer: React.FC<MapContainerProps> = ({ data, onClick, selectedEventId }) => {
 
   return (
     <LoadScript
@@ -42,7 +42,9 @@ export const MapContainer: React.FC<MapContainerProps> = ({ data }) => {
       // onUnmount={onUnmount}
       >
         {data.items.map((item) => (
-          <Marker 
+          <Marker
+          icon={selectedEventId == item.sys.id ? undefined : DEFAULT_ICON}
+            onClick={() => onClick(item.sys.id)}
             key={item.sys.id} 
             position={{ 
               lat: parseFloat(item.fields.location.lat), 

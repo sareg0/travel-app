@@ -30,6 +30,8 @@ const client = contentful.createClient({
 
 const App: React.FC = () => {
   const [data, setData] = useState<ContentfulEventEntryCollection>()
+  const [selectedEventId, setSelectedEventId] = useState<string>()
+
   useEffect(() => {
     client.getEntries<EventData>()
     .then((response) => setData(response))
@@ -41,10 +43,10 @@ const App: React.FC = () => {
     return (
       <div className="map-timeline-grid">
         <section style={{height: '100vh', padding: '20px'}} >
-          <Timeline data={data} />
+          <Timeline data={data} selectedEventId={selectedEventId} onClick={setSelectedEventId} />
         </section>
         <section>
-          <MapContainer data={data} />
+          <MapContainer onClick={setSelectedEventId} data={data} selectedEventId={selectedEventId} />
         </section>
       </div>
     )

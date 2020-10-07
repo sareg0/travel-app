@@ -6,6 +6,7 @@ export interface TimelineItemProps {
   headerText: string;
   timelineItem: React.ReactNode;
   markerType: 'warning' | 'danger' | 'primary';
+  onClick: () => void;
 }
 
 
@@ -13,9 +14,10 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
   headerText,
   timelineItem,
   markerType,
+  onClick
 }) => {
   return (
-    <div className="timeline-item is-primary">
+    <div className="timeline-item is-primary" onClick={onClick}>
       <div className={`timeline-marker is-${markerType}`}></div>
       <div className="timeline-content">
         <TimelineItemHeader headerText={headerText} />
