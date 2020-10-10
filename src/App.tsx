@@ -9,6 +9,7 @@ export interface EventData {
   title: string;
   body: Document;
   timestamp: string;
+  media: contentful.Asset[];
 }
 export type ContentfulEventEntry = contentful.Entry<EventData>
 export type ContentfulEventEntryCollection = contentful.EntryCollection<EventData>

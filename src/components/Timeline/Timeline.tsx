@@ -1,8 +1,8 @@
 import * as React from "react";
 import { TimelineHeader } from "./subcomponents/TimelineHeader/TimelineHeader";
 import { TimelineItem } from "./subcomponents/TimelineItem/TimelineItem";
-import {documentToReactComponents} from '@contentful/rich-text-react-renderer'
 import type {ContentfulEventEntryCollection} from '../../App'
+
 export interface TimelineProps {
   data: ContentfulEventEntryCollection;
   selectedEventId?: string,
