@@ -25,7 +25,7 @@ export type ContentfulEventEntryCollection = contentful.EntryCollection<EventDat
 const client = contentful.createClient({
   space: process.env.REACT_APP_CONTENTFUL_SPACE_ID ?? "",
   accessToken: process.env.REACT_APP_CONTENTFUL_API_KEY ?? "",
-  host: "preview.contentful.com"
+  host: process.env.REACT_APP_CONTENTFUL_HOST_NAME
 })
 
 
