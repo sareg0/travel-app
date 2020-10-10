@@ -25,7 +25,7 @@ export const TimelineItem: React.FC<TimelineItemProps> = ({
         <section className="columns is-multiline">
           {data.fields.media?.map((m) => {
             return (
-              <a href={`${m.fields.file.url}?w=1024&q=80`} target="_blank" rel="noopener" key={m.sys.id} className="column is-4">
+              <a href={`${m.fields.file.url}?w=1024&q=80`} target="_blank" rel="noopener noreferrer" key={m.sys.id} className="column is-4">
                 <picture className="image">
                   <img src={`${m.fields.file.url}?fit=thumb&w=192&h=192&q=50`} alt={m.fields.description || ""} />
                 </picture>
