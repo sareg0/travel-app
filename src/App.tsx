@@ -43,7 +43,7 @@ const App: React.FC = () => {
   if (data) {
     return (
       <div className="map-timeline-grid">
-        <section style={{height: '100vh', padding: '20px'}} >
+        <section style={{height: '100vh', padding: '20px', overflowY: 'scroll'}} >
           <Timeline data={data} selectedEventId={selectedEventId} onClick={setSelectedEventId} />
         </section>
         <section>
