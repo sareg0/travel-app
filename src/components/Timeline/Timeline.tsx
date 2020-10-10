@@ -17,9 +17,8 @@ export const Timeline: React.FC<TimelineProps> = ({ data, selectedEventId, onCli
       <TimelineItem
           onClick={() => onClick(item.sys.id)}
           key={item.sys.id}
-            markerType={selectedEventId == item.sys.id ? "danger" : 'primary'}
-            headerText={item.fields.title}
-            timelineItem={documentToReactComponents(item.fields.body)}
+            markerType={selectedEventId === item.sys.id ? "danger" : 'primary'}
+            data={item}
           />
       )
       )}

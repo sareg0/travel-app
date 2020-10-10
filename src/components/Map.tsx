@@ -43,7 +43,7 @@ export const MapContainer: React.FC<MapContainerProps> = ({ data, onClick, selec
       >
         {data.items.map((item) => (
           <Marker
-          icon={selectedEventId == item.sys.id ? undefined : DEFAULT_ICON}
+          icon={selectedEventId === item.sys.id ? undefined : DEFAULT_ICON}
             onClick={() => onClick(item.sys.id)}
             key={item.sys.id} 
             position={{ 
